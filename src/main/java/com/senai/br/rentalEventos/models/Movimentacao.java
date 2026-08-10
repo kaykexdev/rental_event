@@ -1,10 +1,12 @@
 package com.senai.br.rentalEventos.models;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "movimentacao")
-public class Movimentacao extends Usuario {
+public class Movimentacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -12,11 +14,11 @@ public class Movimentacao extends Usuario {
     @Column(name = "tipo_movimentacao")
     private String tipoMovimentacao;
     @Column(name = "data_movimentacao")
-    private String dataMovimentacao;
-    @Column(name = "quantidade_movimentacao")
-    private String quantidade_movimentacao;
+    private LocalDateTime dataMovimentacao;
+    @Column(name = "quantidadeMovimentacao")
+    private int quantidadeMovimentacao;
     
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
     private Usuario usuarioId;
 
@@ -27,12 +29,12 @@ public class Movimentacao extends Usuario {
     public Movimentacao() {
     }
 
-    public Movimentacao(Long id, String tipoMovimentacao, String dataMovimentacao, String quantidade_movimentacao,
+    public Movimentacao(Long id, String tipoMovimentacao, LocalDateTime dataMovimentacao, int quantidadeMovimentacao,
             Usuario usuarioId, Equipamento equipamentoId) {
         this.id = id;
         this.tipoMovimentacao = tipoMovimentacao;
         this.dataMovimentacao = dataMovimentacao;
-        this.quantidade_movimentacao = quantidade_movimentacao;
+        this.quantidadeMovimentacao = quantidadeMovimentacao;
         this.usuarioId = usuarioId;
         this.equipamentoId = equipamentoId;
     }
@@ -54,20 +56,20 @@ public class Movimentacao extends Usuario {
         this.tipoMovimentacao = tipoMovimentacao;
     }
 
-    public String getDataMovimentacao() {
+    public LocalDateTime getDataMovimentacao() {
         return dataMovimentacao;
     }
 
-    public void setDataMovimentacao(String dataMovimentacao) {
+    public void setDataMovimentacao(LocalDateTime dataMovimentacao) {
         this.dataMovimentacao = dataMovimentacao;
     }
 
-    public String getQuantidade_movimentacao() {
-        return quantidade_movimentacao;
+    public int getQuantidadeMovimentacao() {
+        return quantidadeMovimentacao;
     }
 
-    public void setQuantidade_movimentacao(String quantidade_movimentacao) {
-        this.quantidade_movimentacao = quantidade_movimentacao;
+    public void setQuantidadeMovimentacao(int quantidadeMovimentacao) {
+        this.quantidadeMovimentacao = quantidadeMovimentacao;
     }
 
     public Usuario getUsuarioId() {
