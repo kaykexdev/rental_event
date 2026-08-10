@@ -28,12 +28,13 @@ public class Movimentacao extends Usuario {
     }
 
     public Movimentacao(Long id, String tipoMovimentacao, String dataMovimentacao, String quantidade_movimentacao,
-            Usuario usuarioId) {
+            Usuario usuarioId, Equipamento equipamentoId) {
         this.id = id;
         this.tipoMovimentacao = tipoMovimentacao;
         this.dataMovimentacao = dataMovimentacao;
         this.quantidade_movimentacao = quantidade_movimentacao;
         this.usuarioId = usuarioId;
+        this.equipamentoId = equipamentoId;
     }
 
 
@@ -77,6 +78,12 @@ public class Movimentacao extends Usuario {
         this.usuarioId = usuarioId;
     }
 
+    public Equipamento getEquipamentoId() {
+        return equipamentoId;
+    }
 
-    
+    public void setEquipamentoId(Equipamento equipamentoId) {
+        this.equipamentoId = equipamentoId;
+    }
+
 }
