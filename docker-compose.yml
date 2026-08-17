@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: DockerFile
+      container_name: rental_event
+    ports:
+      - "8080:8080"
+    envirenment:
+      - SENHA_SUPABASE=${SENHA_SUPABASE}
+      - DB_URL=${DB_URL}
+      - DB_USERNAME=${DB_USERNAME}
+    restart: unless-stopped
