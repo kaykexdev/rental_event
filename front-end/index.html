@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- Define que o documento usa caracteres especiais do português -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página se adaptar a celular, tablet e computador -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Nome que aparece na aba do navegador -->
+    <title>Rental_Event | Login</title>
+
+    <!-- Conecta o HTML ao arquivo CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+
+    <!-- Área principal da página -->
+    <main class="login-container">
+
+        <!-- Caixa do formulário de login -->
+        <section class="login-box">
+
+            <!-- Nome do sistema -->
+            <h1>Rental_Event</h1>
+
+            <!-- Texto de apresentação -->
+            <p class="subtitle">
+                Sistema de gerenciamento de equipamentos
+            </p>
+
+            <!-- Formulário -->
+            <form id="loginForm">
+
+                <!-- Campo de e-mail -->
+                <div class="input-group">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+
+                </div>
+
+                <!-- Campo de senha -->
+                <div class="input-group">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                </div>
+
+                <!-- Mensagem de erro -->
+                <p id="mensagemErro"></p>
+
+                <!-- Botão de login -->
+                <button type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+            <!-- Área de cadastro -->
+            <div class="cadastro-link">
+
+                <p>
+                    Ainda não possui uma conta?
+                </p>
+
+                <a href="pages/cadastro.html">
+                    Criar uma conta
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Conecta o HTML ao JavaScript -->
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
