@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.br.rentalEventos.models.Movimentacao;
 import com.senai.br.rentalEventos.service.MovimentacaoService;
 
+@RestController
+@RequestMapping("/movimentacao")
 public class MovimentacaoController {
     
     private final MovimentacaoService movimentacaoService;
