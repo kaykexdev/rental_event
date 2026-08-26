@@ -12,51 +12,56 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.br.rentalEventos.dto.MovimentacaoRequest;
+import com.senai.br.rentalEventos.models.Movimentacao;
 import com.senai.br.rentalEventos.service.MovimentacaoService;
 
 @RestController
 @RequestMapping("/movimentacao")
 public class MovimentacaoController {
-    
+
     private final MovimentacaoService movimentacaoService;
 
-    public MovimentacaoController(MovimentacaoService movimentacaoService) {
+    public MovimentacaoController(
+            MovimentacaoService movimentacaoService) {
+
         this.movimentacaoService = movimentacaoService;
     }
 
     @PostMapping("/cadastro")
-    public MovimentacaoRequest cadastrarMovimentacao(
+    public Movimentacao cadastrarMovimentacao(
             @RequestBody MovimentacaoRequest movimentacao) {
 
         return movimentacaoService.cadastrarMovimentacao(movimentacao);
     }
 
     @GetMapping("/listar")
-    public List<MovimentacaoRequest> listarMovimentacoes() {
+    public List<Movimentacao> listarMovimentacoes() {
 
         return movimentacaoService.listarMovimentacoes();
     }
 
     @GetMapping("/listarId/{id}")
-    public MovimentacaoRequest buscarPorId(@PathVariable Long id) {
+    public Movimentacao buscarPorId(
+            @PathVariable Long id) {
 
         return movimentacaoService.buscarPorId(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public MovimentacaoRequest atualizar(
+    public Movimentacao atualizar(
             @PathVariable Long id,
             @RequestBody MovimentacaoRequest movimentacao) {
 
-        return movimentacaoService.atualizarMovimentacao(id, movimentacao);
+        return movimentacaoService.atualizarMovimentacao(
+                id,
+                movimentacao
+        );
     }
 
     @DeleteMapping("/deletar/{id}")
-    public MovimentacaoRequest deletar(@PathVariable Long id) {
+    public void deletar(
+            @PathVariable Long id) {
 
         movimentacaoService.deletarMovimentacao(id);
-
-        return null;
     }
-
 }
