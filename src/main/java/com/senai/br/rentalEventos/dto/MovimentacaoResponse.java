@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 public class MovimentacaoResponse {
 
-    private Long id;
     private String tipoMovimentacao;
     private LocalDateTime dataMovimentacao;
     private Integer quantidadeMovimentacao;
@@ -14,12 +13,6 @@ public class MovimentacaoResponse {
     
     
     
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
     public String getTipoMovimentacao() {
         return tipoMovimentacao;
     }
