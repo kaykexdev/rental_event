@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senai.br.rentalEventos.models.Movimentacao;
+import com.senai.br.rentalEventos.dto.MovimentacaoRequest;
 import com.senai.br.rentalEventos.service.MovimentacaoService;
 
 @RestController
@@ -25,34 +25,34 @@ public class MovimentacaoController {
     }
 
     @PostMapping("/cadastro")
-    public Movimentacao cadastrarMovimentacao(
-            @RequestBody Movimentacao movimentacao) {
+    public MovimentacaoRequest cadastrarMovimentacao(
+            @RequestBody MovimentacaoRequest movimentacao) {
 
         return movimentacaoService.cadastrarMovimentacao(movimentacao);
     }
 
     @GetMapping("/listar")
-    public List<Movimentacao> listarMovimentacoes() {
+    public List<MovimentacaoRequest> listarMovimentacoes() {
 
         return movimentacaoService.listarMovimentacoes();
     }
 
     @GetMapping("/listarId/{id}")
-    public Movimentacao buscarPorId(@PathVariable Long id) {
+    public MovimentacaoRequest buscarPorId(@PathVariable Long id) {
 
         return movimentacaoService.buscarPorId(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public Movimentacao atualizar(
+    public MovimentacaoRequest atualizar(
             @PathVariable Long id,
-            @RequestBody Movimentacao movimentacao) {
+            @RequestBody MovimentacaoRequest movimentacao) {
 
         return movimentacaoService.atualizarMovimentacao(id, movimentacao);
     }
 
     @DeleteMapping("/deletar/{id}")
-    public Movimentacao deletar(@PathVariable Long id) {
+    public MovimentacaoRequest deletar(@PathVariable Long id) {
 
         movimentacaoService.deletarMovimentacao(id);
 

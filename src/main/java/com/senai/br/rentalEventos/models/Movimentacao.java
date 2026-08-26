@@ -19,11 +19,11 @@ public class Movimentacao {
     private int quantidadeMovimentacao;
     
     @ManyToOne
-    @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuarioId;
 
     @ManyToOne
-    @JoinColumn(name = "equipamento_id", insertable = false, updatable = false)
+    @JoinColumn(name = "equipamento_id")
     private Equipamento equipamentoId;
 
     public Movimentacao() {

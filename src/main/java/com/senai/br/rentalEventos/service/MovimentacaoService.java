@@ -1,5 +1,6 @@
 package com.senai.br.rentalEventos.service;
 
+import com.senai.br.rentalEventos.dto.MovimentacaoRequest;
 import com.senai.br.rentalEventos.models.Movimentacao;
 import com.senai.br.rentalEventos.repository.MovimentacaoRepository;
 import org.springframework.stereotype.Service;
@@ -17,57 +18,57 @@ public class MovimentacaoService {
         this.movimentacaoRepository = movimentacaoRepository;
     }
 
-    public Movimentacao cadastrarMovimentacao(
-            Movimentacao movimentacao) {
+    public MovimentacaoRequest cadastrarMovimentacao(
+            MovimentacaoRequest request) {
 
-        return movimentacaoRepository.save(movimentacao);
+        return movimentacaoRepository.save(request);
     }
 
-    public List<Movimentacao> listarMovimentacoes() {
+    public List<MovimentacaoRequest> listarMovimentacoes() {
 
         return movimentacaoRepository.findAll();
     }
 
-    public Movimentacao buscarPorId(Long id) {
+    public MovimentacaoRequest buscarPorId(Long id) {
 
         return movimentacaoRepository.findById(id)
                 .orElseThrow(() ->
                         new RuntimeException("Movimentação não encontrada"));
     }
 
-    public Movimentacao atualizarMovimentacao(
+    public MovimentacaoRequest atualizarMovimentacao(
             Long id,
-            Movimentacao movimentacao) {
+            MovimentacaoRequest request) {
 
-        Movimentacao movimentacaoExistente = buscarPorId(id);
+        MovimentacaoRequest movimentacaoRequestExistente = buscarPorId(id);
 
-        movimentacaoExistente.setTipoMovimentacao(
-                movimentacao.getTipoMovimentacao()
+        movimentacaoRequestExistente.setTipoMovimentacao(
+                request.getTipoMovimentacao()
         );
 
-        movimentacaoExistente.setDataMovimentacao(
-                movimentacao.getDataMovimentacao()
+        movimentacaoRequestExistente.setDataMovimentacao(
+                request.getDataMovimentacao()
         );
 
-        movimentacaoExistente.setQuantidadeMovimentacao(
-                movimentacao.getQuantidadeMovimentacao()
+        movimentacaoRequestExistente.setQuantidadeMovimentacao(
+                request.getQuantidadeMovimentacao()
         );
 
-        movimentacaoExistente.setUsuarioId(
-                movimentacao.getUsuarioId()
+        movimentacaoRequestExistente.setUsuarioId(
+                request.getUsuarioId()
         );
 
-        movimentacaoExistente.setEquipamentoId(
-                movimentacao.getEquipamentoId()
+        movimentacaoRequestExistente.setEquipamentoId(
+                request.getEquipamentoId()
         );
 
-        return movimentacaoRepository.save(movimentacaoExistente);
+        return movimentacaoRepository.save(movimentacaoRequestExistente);
     }
 
     public void deletarMovimentacao(Long id) {
 
-        Movimentacao movimentacao = buscarPorId(id);
+        MovimentacaoRequest request = buscarPorId(id);
 
-        movimentacaoRepository.delete(movimentacao);
+        movimentacaoRepository.delete(request);
     }
 }
