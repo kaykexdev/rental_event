@@ -24,7 +24,7 @@ public class MovimentacaoController {
         this.movimentacaoService = movimentacaoService;
     }
 
-    @PostMapping
+    @PostMapping("/cadastro")
     public Movimentacao cadastrarMovimentacao(
             @RequestBody Movimentacao movimentacao) {
 
