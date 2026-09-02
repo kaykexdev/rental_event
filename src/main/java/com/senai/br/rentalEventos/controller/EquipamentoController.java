@@ -24,7 +24,7 @@ public class EquipamentoController {
     }
 
 
-     @PostMapping("/cadastro")
+    @PostMapping("/cadastro")
     public Equipamento cadastrarEquipamento(@RequestBody Equipamento equipamento) {
         return equipamentoService.cadastrarEquipamento(equipamento);
     }
