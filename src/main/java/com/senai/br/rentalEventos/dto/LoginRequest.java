@@ -1,10 +1,11 @@
 package com.senai.br.rentalEventos.dto;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-@Data
 
-public class LoginRequest {
+public record LoginRequest(
 
-    @NotBlack String email,
-    @NotBlack @Size(min = 8) String senha,
+    @NotBlank String email,
+    @NotBlank @Size(min = 8) String senha
 
-}
+) {}

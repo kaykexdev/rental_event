@@ -1,7 +1,7 @@
 package com.senai.br.rentalEventos.dto;
+public record UsuarioResponse(
 
-public class UsuarioResponse {
     Long id,
     String nome,
     String email
-}
+) {}
