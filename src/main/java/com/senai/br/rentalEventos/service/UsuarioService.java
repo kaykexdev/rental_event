@@ -1,10 +1,11 @@
 package com.senai.br.rentalEventos.service;
 
-import com.senai.br.rentalEventos.models.Usuario;
-import com.senai.br.rentalEventos.repository.*;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.senai.br.rentalEventos.models.Usuario;
+import com.senai.br.rentalEventos.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
@@ -15,9 +16,6 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public Usuario cadastrarUsuario(Usuario usuario) {
-        return usuarioRepository.save(usuario);
-    }
 
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
@@ -48,14 +46,4 @@ public class UsuarioService {
         usuarioRepository.delete(usuario);
     }
 
-    public Usuario login(String email, String senha) {
-        Usuario usuario = usuarioRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-
-        if (!usuario.getSenha().equals(senha)) {
-            throw new RuntimeException("Senha incorreta");
-        }
-
-        return usuario;
-    }
 }
