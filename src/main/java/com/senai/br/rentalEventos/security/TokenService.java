@@ -19,7 +19,7 @@ public class TokenService {
 
     public TokenService(
             JwtEncoder jwtEncoder,
-            @Value("${JWT_EXPIRATION_SECONDS}") long expirationSeconds) {
+            @Value("${jwt.expiration-seconds}") long expirationSeconds) {
         this.jwtEncoder = jwtEncoder;
         this.expirationSeconds = expirationSeconds;
 }

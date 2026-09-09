@@ -18,7 +18,7 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 public class JwtConfig {
 
     @Bean
-    SecretKey jwtSecretKey(@Value("${JWT_SECRET}") String secret) {
+    SecretKey jwtSecretKey(@Value("${jwt.secret}") String secret) {
         byte[] bytes;
         try{
             bytes = Base64.getDecoder().decode(secret);
