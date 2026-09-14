@@ -1,6 +1,6 @@
 package com.senai.br.rentalEventos.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
