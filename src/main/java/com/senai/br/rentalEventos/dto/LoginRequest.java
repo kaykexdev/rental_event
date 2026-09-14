@@ -7,6 +7,6 @@ public record LoginRequest(
 
     @NotBlank String email,
     @NotBlank @Size(min = 8) String senha,
-    Long idUsuario
+    Long Id
 
 ) {}

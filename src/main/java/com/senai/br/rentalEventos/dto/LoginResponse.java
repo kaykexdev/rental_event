@@ -5,7 +5,7 @@ public record LoginResponse(
     String token,
     String tipo,
     Long expiraEmSegundos,
-    Long idUsuario
+    Long Id
 
 ) {}
 
