@@ -39,7 +39,7 @@ public class Usuario {
     @Column(name = "senha")
     private String senha;
     @Column(name = "data_nascimento")
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
 
 
 }
